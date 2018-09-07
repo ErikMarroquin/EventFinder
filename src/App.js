@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Error from './components/Error';
+import Navigation from './components/Navigation';
 import API_KEY from './Api.js';
 import Form from './components/form.jsx';
 import Events from './components/events.jsx';
@@ -48,13 +52,35 @@ class App extends Component {
    var eventInfo = this.state.eventList.map((item) => [item.title, item.venue_name, item.longitude, item.latitude, item.start_time]);
 
    return (
+
      <div>
+
        <Form getEvent={this.getEvent}/>
        <Events eventInfo ={eventInfo}/>
        <Map eventInfo ={eventInfo}/>
-     </div>
+
+
+      <BrowserRouter>
+      <div>
+      <Navigation />
+  <switch>
+
+<Route path='/' component={Home} />
+<Route path='/about' component={About} />
+<Route path='/contact' component={Contact} />
+<Route component={Error} />
+
+</switch>
+  </div>
+</BrowserRouter>
+
+
+</div>
+
+
    );
  }
+
 }
 
 export default App;
