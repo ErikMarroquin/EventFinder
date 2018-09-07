@@ -63,14 +63,14 @@ class App extends Component {
       <BrowserRouter>
       <div>
       <Navigation />
-  <switch>
+  <Switch>
 
 <Route path='/' component={Home} />
 <Route path='/about' component={About} />
 <Route path='/contact' component={Contact} />
 <Route component={Error} />
 
-</switch>
+</Switch>
   </div>
 </BrowserRouter>
 
